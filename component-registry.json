@@ -1,0 +1,203 @@
+{
+  "version": "1.0.0",
+  "components": {
+    "accordion": {
+      "name": "accordion",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["ui", "layout"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/accordion"
+    },
+    "alert": {
+      "name": "alert",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["feedback", "ui"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/alert"
+    },
+    "avatar": {
+      "name": "avatar",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["profile", "image"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/avatar"
+    },
+    "badge": {
+      "name": "badge",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["ui", "label"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/badge"
+    },
+    "button": {
+      "name": "button",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["form", "interactive", "ui"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/button"
+    },
+    "card": {
+      "name": "card",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["layout", "ui"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/card"
+    },
+    "checkbox": {
+      "name": "checkbox",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["form", "input"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/checkbox"
+    },
+    "ck-slot": {
+      "name": "ck-slot",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["utility", "slot"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/ck-slot"
+    },
+    "comboBox": {
+      "name": "comboBox",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["form", "input", "select"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/comboBox"
+    },
+    "input-otp": {
+      "name": "input-otp",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["form", "input", "otp"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/input-otp"
+    },
+    "input": {
+      "name": "input",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["form", "input", "text"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/input"
+    },
+    "label": {
+      "name": "label",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["form", "text"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/label"
+    },
+    "radio": {
+      "name": "radio",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["form", "input"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/radio"
+    },
+    "scrollarea": {
+      "name": "scrollarea",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["layout", "scroll"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/scrollarea"
+    },
+    "select": {
+      "name": "select",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["form", "dropdown"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/select"
+    },
+    "separator": {
+      "name": "separator",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["layout", "divider"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/separator"
+    },
+    "skeleton": {
+      "name": "skeleton",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["loading", "placeholder"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/skeleton"
+    },
+    "switch": {
+      "name": "switch",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["form", "toggle"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/switch"
+    },
+    "table": {
+      "name": "table",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["data", "layout"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/table"
+    },
+    "textarea": {
+      "name": "textarea",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["form", "input", "text"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/textarea"
+    },
+    "toggle": {
+      "name": "toggle",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["form", "switch"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/toggle"
+    },
+    "tooltip": {
+      "name": "tooltip",
+      "version": "1.0.0",
+      "frameworks": ["react", "next"],
+      "tags": ["ui", "popup", "hover"],
+      "status": "stable",
+      "deprecated": false,
+      "sourceUrl": "https://cdn.jsdelivr.net/gh/DevsToolKit/clyro_testing@main/component_registry/tooltip"
+    }
+  }
+}
