@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "type": "registry:ui",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "files": [
+    {
+      "path": "ui/badge.jsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { Slot } from \"./ck-slot\";\n\nconst baseClasses =\n  \"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 gap-1 transition-colors\";\n\nconst variantClasses = {\n  default: \"bg-[var(--foreground)] text-[var(--background)] border-transparent\",\n  secondary: \"bg-[var(--info)] text-white border-transparent\",\n  destructive: \"bg-destructive text-white border-transparent\",\n  outline:\n    \"bg-transparent text-[var(--foreground)] border-[var(--border)] hover:bg-[var(--foreground)/0.05]\",\n  notification:\n    \"bg-[var(--info)] text-white border-transparent rounded-full w-5 aspect-square text-[10px] flex items-center justify-center p-0 leading-none text-center overflow-hidden\",\n};\n\nfunction Badge({ variant = \"default\", asChild = false, className, ...props }) {\n  const Component = asChild ? Slot : \"span\";\n\n  const classes =\n    variant === \"notification\"\n      ? cn(variantClasses[variant], className)\n      : cn(baseClasses, variantClasses[variant], className);\n\n  return <Component className={classes} {...props} />;\n}\n\nexport { Badge };\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

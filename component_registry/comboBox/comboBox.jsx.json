@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "comboBox",
+  "type": "registry:ui",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "files": [
+    {
+      "path": "ui/comboBox.jsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport {\n  Select,\n  SelectTrigger,\n  SelectContent,\n  SelectItem,\n  SelectValue,\n} from \"./select\"; // Update this path as needed\nimport { Input } from \"./input\"; // Use your custom Input component\nimport { cn } from \"@/lib/utils\";\nimport { SearchIcon } from \"lucide-react\";\nimport { Separator } from \"./separator\";\n\nexport function ComboBox({\n  items,\n  value,\n  onValueChange,\n  placeholder = \"Select an item\",\n  errorMessage,\n  noMatchFallback = \"No such item found\",\n  className,\n}) {\n  const [query, setQuery] = React.useState(\"\");\n\n  const filteredItems = items.filter((item) =>\n    item.toLowerCase().includes(query.toLowerCase())\n  );\n\n  return (\n    <div className={cn(\"space-y-1\", className)}>\n      <Select value={value} onValueChange={onValueChange}>\n        <SelectTrigger>\n          <SelectValue placeholder={placeholder} />\n        </SelectTrigger>\n        <SelectContent className=\"pt-0\">\n          {/* Custom Input as search bar */}\n          <div className=\"py-2 sticky top-0 z-[1] bg-background\">\n            <Input\n              icon={<SearchIcon className=\"w-4 h-4\" />}\n              type=\"text\"\n              value={query}\n              onChange={(e) => setQuery(e.target.value)}\n              placeholder=\"Search...\"\n              className=\"h-8 text-sm\"\n            />\n          </div>\n\n          <Separator />\n\n          {/* List Items */}\n          {filteredItems.length > 0 ? (\n            filteredItems.map((item) => (\n              <SelectItem key={item} value={item}>\n                {item}\n              </SelectItem>\n            ))\n          ) : (\n            <div className=\"pt-2 py-2 text-sm text-muted-foreground\">\n              {noMatchFallback}\n            </div>\n          )}\n        </SelectContent>\n      </Select>\n\n      {/* Error Message */}\n      {errorMessage && (\n        <p className=\"text-sm text-destructive pt-1\">{errorMessage}</p>\n      )}\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

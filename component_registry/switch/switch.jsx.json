@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "type": "registry:ui",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "files": [
+    {
+      "path": "ui/switch.jsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nconst Switch = React.forwardRef(\n  (\n    {\n      className,\n      checked: controlledChecked,\n      defaultChecked = false,\n      onCheckedChange,\n      disabled,\n      trackColor = \"bg-primary\",\n      ...props\n    },\n    ref\n  ) => {\n    const isControlled = controlledChecked !== undefined;\n    const [uncontrolledChecked, setChecked] = React.useState(defaultChecked);\n    const isChecked = isControlled ? controlledChecked : uncontrolledChecked;\n\n    const toggle = () => {\n      if (disabled) return;\n      if (!isControlled) setChecked(!isChecked);\n      onCheckedChange?.(!isChecked);\n    };\n\n    return (\n      <button\n        type=\"button\"\n        role=\"switch\"\n        aria-checked={isChecked}\n        disabled={disabled}\n        ref={ref}\n        onClick={toggle}\n        className={cn(\n          \"peer inline-flex h-[20px] w-[32px] shrink-0 items-center rounded-full border border-transparent shadow-xs outline-none transition-all\",\n          \"focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring\",\n          \"disabled:cursor-not-allowed disabled:opacity-50\",\n          isChecked ? trackColor : \"bg-input dark:bg-input/80\",\n          className\n        )}\n        {...props}\n      >\n        <span\n          className={cn(\n            \"pointer-events-none block h-[14px] w-[14px] rounded-full ring-0 transition-transform\",\n            isChecked\n              ? \"translate-x-[calc(100%)] dark:bg-primary-foreground bg-background\"\n              : \"translate-x-[2px] bg-background dark:bg-foreground\"\n          )}\n        />\n      </button>\n    );\n  }\n);\n\nSwitch.displayName = \"Switch\";\n\nexport { Switch };\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

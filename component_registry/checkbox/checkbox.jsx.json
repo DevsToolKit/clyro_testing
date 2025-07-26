@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:ui",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "files": [
+    {
+      "path": "ui/checkbox.jsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { CheckIcon } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\n\nconst Checkbox = React.forwardRef(\n  (\n    {\n      className,\n      disabled,\n      hoverEnabled = false,\n      checkboxColor = \"#3b82f6\",\n      checked: controlledChecked,\n      defaultChecked,\n      onChange,\n      ...props\n    },\n    ref\n  ) => {\n    const [checked, setChecked] = React.useState(defaultChecked ?? false);\n    const isControlled = controlledChecked !== undefined;\n\n    const currentChecked = isControlled ? controlledChecked : checked;\n\n    const handleChange = (e) => {\n      if (!isControlled) {\n        setChecked(e.target.checked);\n      }\n      onChange?.(e);\n    };\n\n    return (\n      <label\n        className={cn(\n          \"relative inline-flex items-center group cursor-pointer select-none\",\n          disabled && \"cursor-not-allowed opacity-50\"\n        )}\n        data-state={currentChecked ? \"checked\" : \"unchecked\"}\n      >\n        <input\n          type=\"checkbox\"\n          ref={ref}\n          disabled={disabled}\n          checked={currentChecked}\n          onChange={handleChange}\n          className=\"peer sr-only\"\n          {...props}\n        />\n\n        <div\n          data-slot=\"checkbox\"\n          className={cn(\n            \"relative flex items-center justify-center shrink-0 rounded-[var(--radius)] border-2 box-border transition-colors duration-200 ease-in-out\",\n            \"w-6 h-6\",\n            \"border-gray-300 bg-white\",\n            currentChecked\n              ? \"bg-[color:var(--checkbox-color)] border-[color:var(--checkbox-color)]\"\n              : \"\",\n            `peer-focus-visible:outline-none peer-focus-visible:ring-3 peer-focus-visible:ring-ring`,\n            \"disabled:cursor-not-allowed disabled:opacity-50\",\n            className\n          )}\n          style={{\n            \"--checkbox-color\": checkboxColor,\n          }}\n        >\n          {hoverEnabled && (\n            <span\n              className=\"absolute inset-[-12px] rounded-full bg-[color:var(--checkbox-color)] opacity-0 transition-opacity duration-200 group-hover:opacity-10 pointer-events-none\"\n              style={{\n                \"--checkbox-color\": checkboxColor,\n              }}\n            />\n          )}\n\n          {currentChecked && (\n            <CheckIcon\n              className=\"w-4 h-4 stroke-white m-0 p-0 leading-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2\"\n              strokeWidth={3}\n              aria-hidden=\"true\"\n            />\n          )}\n        </div>\n      </label>\n    );\n  }\n);\n\nCheckbox.displayName = \"Checkbox\";\n\nexport { Checkbox };\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

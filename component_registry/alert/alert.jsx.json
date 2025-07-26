@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert",
+  "type": "registry:ui",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "files": [
+    {
+      "path": "ui/alert.jsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { CircleCheck, CircleAlert, Info, XCircle, X } from \"lucide-react\";\n\nconst variantStyles = {\n  success: {\n    icon: CircleCheck,\n    color: \"text-green-600\",\n    title: \"text-green-600\",\n  },\n  warning: {\n    icon: CircleAlert,\n    color: \"text-yellow-500\",\n    title: \"text-yellow-500\",\n  },\n  info: {\n    icon: Info,\n    color: \"text-blue-500\",\n    title: \"text-blue-500\",\n  },\n  destructive: {\n    icon: XCircle,\n    color: \"text-red-500\",\n    title: \"text-red-500\",\n  },\n};\n\nexport function Alert({\n  className,\n  title,\n  description,\n  variant = \"info\",\n  onClose,\n}) {\n  const { icon: Icon, color, title: titleColor } = variantStyles[variant];\n\n  return (\n    <div\n      className={cn(\n        \"flex items-start justify-between w-full max-w-[600px] bg-white border border-gray-200 rounded-lg py-[16px] px-[24px]\",\n        className\n      )}\n      role=\"alert\"\n    >\n      <div className=\"flex items-start gap-3\">\n        <Icon className={cn(\"w-5 h-5 mt-1 flex-[0_0_1.5rem]\", color)} />\n        <div className=\"space-y-0.5\">\n          <p\n            className={cn(\n              \"font-semibold text-[14px] leading-[18xp]\",\n              titleColor\n            )}\n          >\n            {title}\n          </p>\n          <p className=\"text-sm text-gray-600 text-[14px] leading-[18xp]\">\n            {description}\n          </p>\n        </div>\n      </div>\n      {onClose && (\n        <button\n          onClick={onClose}\n          className=\"text-gray-400 hover:text-gray-600 transition\"\n          aria-label=\"Close\"\n        >\n          <X className=\"w-4 h-4\" />\n        </button>\n      )}\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

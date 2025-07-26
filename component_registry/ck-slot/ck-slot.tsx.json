@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ck-slot",
+  "type": "registry:ui",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "files": [
+    {
+      "path": "ui/ck-slot.tsx",
+      "content": "import * as React from \"react\";\n\ninterface SlotProps extends React.HTMLAttributes<HTMLElement> {\n  children: React.ReactElement;\n}\n\nconst Slot = React.forwardRef<HTMLElement, SlotProps>(\n  ({ children, className, ...props }, ref) => {\n    return React.cloneElement(children, {\n      ...props,\n      ref: (node: HTMLElement | null) => {\n        // Forward ref to parent\n        if (typeof ref === \"function\") {\n          ref(node);\n        } else if (ref) {\n          (ref as React.MutableRefObject<HTMLElement | null>).current = node;\n        }\n\n        // Preserve child's original ref\n        const childRef = (children as any).ref;\n        if (typeof childRef === \"function\") {\n          childRef(node);\n        } else if (childRef && typeof childRef === \"object\") {\n          childRef.current = node;\n        }\n      },\n      className: [children.props.className, className]\n        .filter(Boolean)\n        .join(\" \"),\n    });\n  }\n);\n\nSlot.displayName = \"Slot\";\nexport { Slot };\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

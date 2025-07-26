@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "type": "registry:ui",
+  "author": "shadcn (https://ui.shadcn.com)",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "files": [
+    {
+      "path": "ui/textarea.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface TextareaProps extends React.ComponentProps<\"textarea\"> {\n  resizeVertical?: boolean;\n  resizeHorizontal?: boolean;\n}\n\nfunction Textarea({\n  className,\n  resizeVertical,\n  resizeHorizontal,\n  ...props\n}: TextareaProps) {\n  let resizeClass = \"resize-none\";\n\n  if (resizeVertical && resizeHorizontal) {\n    resizeClass = \"resize\";\n  } else if (resizeVertical) {\n    resizeClass = \"resize-y\";\n  } else if (resizeHorizontal) {\n    resizeClass = \"resize-x\";\n  }\n\n  return (\n    <textarea\n      data-slot=\"textarea\"\n      className={cn(\n        \"placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex w-full min-w-0 rounded-md border bg-transparent p-[14px] py-[10px] text-base shadow-xs transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm\",\n        \"focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]\",\n        \"aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive\",\n        \"min-h-16\",\n        resizeClass,\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Textarea };",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}
