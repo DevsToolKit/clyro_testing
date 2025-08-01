@@ -1,63 +1,69 @@
-# Introduction
+Introduction
+Clyro is a modern, open-source component architecture and distribution framework designed to empower developers to build their own scalable, design-consistent component libraries. It provides not just a set of components, but a structured foundation for building, maintaining, and distributing customizable, production-ready UI elements across projects, teams, and platforms.
 
-**Clyro** is a developer-first component system and code distribution platform. Built for flexibility, designed for teams, and ready for AI. Open source. Fully extendable.
+Clyro is not a traditional component library. Instead of packaging a fixed set of pre-built components behind opaque abstractions, Clyro hands you full access to the source code — empowering you to shape your design system from the ground up, while benefiting from battle-tested architecture, accessible markup, and beautiful defaults.
 
-> This isn’t just a component library. It’s a way to build your own.
+Rethinking Component Libraries
+Most UI libraries follow a predictable pattern: you install a dependency, import components, and apply them within your app. This model works until your design needs diverge from what the library offers. At that point, you face limitations: deeply nested overrides, complex wrappers, inconsistent APIs, and a loss of control over the core behavior of your UI elements.
 
-Most traditional UI libraries ask you to install a package from NPM and use precompiled components. That works—until you need to deeply customize a component, adhere to your design system, or introduce one that isn’t included.
+Clyro is built to solve these problems by embracing the following principles:
 
-That’s where **Clyro** comes in. It’s built around five core principles:
+Open Code
+Clyro gives you direct access to the complete component source code. This means you're not locked into abstracted APIs or forced to override deeply-styled components. You control the markup, behavior, and styling — with a system that's ready for modern tooling and developer workflows.
 
----
+Key benefits:
 
-## 🧩 Open Code
+Transparency: Inspect, debug, and modify any part of a component without guessing what’s behind the scenes.
 
-Clyro gives you actual component source code. You own it. Customize it. Extend it.
+Customization: Tailor components to your specific design system, interaction logic, or accessibility requirements.
 
-- **Full Transparency:** See exactly how every component works.
-- **No Wrapping Hacks:** Change behavior or styles directly.
-- **AI-Friendly:** Your code is readable and writable by both humans and LLMs.
+LLM-friendly: The codebase is structured for easy consumption and enhancement by AI models — making Clyro ideal for integration with AI-assisted tooling.
 
----
+Composable Architecture
+All Clyro components are built using a shared composable foundation — from state logic to styling conventions. This consistency results in a unified developer experience where you learn a single design pattern and apply it across all components.
 
-## ♻️ Composition
+Whether you're building new components from scratch or extending existing ones, Clyro’s architecture ensures predictable behavior, clean separation of concerns, and seamless integration across your codebase.
 
-Every component follows a composable interface. Whether it’s a primitive or a complex UI piece, it behaves consistently.
+Predictable APIs: Uniform patterns across all components reduce onboarding time and eliminate surprises.
 
-- **Predictable APIs:** Once you learn one, you understand the rest.
-- **Composable by Default:** Works well with React patterns and modern UI architectures.
-- **Pluggable:** Drop in 3rd-party components and bring them under the same interface.
+Composable by Design: Components are structured to be used as building blocks — not black boxes.
 
----
+Design System Alignment: Adapt and extend any component to reflect your evolving brand and product language.
 
-## 🚚 Distribution
+Component Distribution
+Clyro introduces a flexible schema and CLI-based tooling that turns your components into portable, shareable modules. Whether you're building a mono-repo design system or syncing components across separate projects, Clyro provides tools to make distribution seamless.
 
-Clyro isn’t just a set of components—it’s also a **code distribution tool**.
+Distribution Tools:
 
-- **Flat-File Schema:** Define components, dependencies, and metadata with minimal overhead.
-- **CLI First:** Use the Clyro CLI to pull, push, and sync components across projects.
-- **Framework-Aware:** Works across React, Next.js, and more.
+Flat-file Schema: Defines component files, dependencies, and metadata in a clear and structured format.
 
----
+CLI Integration: Install, update, and share components across projects with versioning and consistency.
 
-## 🎨 Beautiful Defaults
+Cross-Framework Support: Built for adaptability across React, Next.js, and other modern front-end ecosystems.
 
-Our components come with minimal, elegant styling that feels good out-of-the-box—but doesn’t lock you in.
+Beautiful Defaults
+Clyro components ship with thoughtful default styles designed to deliver clean, accessible, and professional UIs out of the box. You can use them as-is or treat them as scaffolding for your own system.
 
-- **Ready-to-Use:** Clean and modern UI from day one.
-- **Design System Friendly:** Built to be extended or themed.
-- **Consistent:** All components feel like part of the same family.
+Design Principles:
 
----
+Out-of-the-Box Usability: Components are production-ready with elegant, minimal styles.
 
-## 🤖 AI-Ready
+Design Consistency: All components are built to work together, visually and structurally.
 
-Clyro is designed for the future of software development—where AI is your coding partner.
+Easily Themeable: Override colors, spacing, typography, and interactions without deep rewrites.
 
-- **Structured Code:** Easy for models to read and reason about.
-- **Composable Patterns:** Models can learn, replicate, and even improve components.
-- **Schema-Aware:** Let LLMs generate new components that follow your system.
+AI-Ready by Design
+Clyro is built with future tooling in mind. Its architecture and open codebase are optimized for AI integration, enabling large language models and AI-powered assistants to generate, modify, and understand components at a structural level.
 
----
+AI Enablement:
 
-Clyro gives you control, composability, and a platform to scale your design system with confidence—and without compromise.
+Open Codebase: AI tools can read and adapt component logic without needing reverse engineering.
+
+Consistent Structure: Predictable patterns make it easier for AI to generate code that aligns with your project.
+
+Accelerated Development: From boilerplate generation to design suggestions, Clyro unlocks new AI-powered workflows.
+
+Build Your Own System
+Clyro is more than just a collection of components — it’s an approach to UI development. By giving you ownership over your component code and the tools to manage and scale it, Clyro enables teams to create design systems that evolve alongside their product needs.
+
+Whether you're launching a new startup, scaling a design system across teams, or building tools for the next generation of AI-native applications — Clyro is your foundation.
