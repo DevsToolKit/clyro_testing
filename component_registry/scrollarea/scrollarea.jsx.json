@@ -1,0 +1,17 @@
+{
+  "$schema": "https://clyro.devstoolkit.space/schema/registry-item.json",
+  "name": "scrollarea",
+  "type": "registry:ui",
+  "author": "clyro (https://clyro.devstoolkit.space)",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "files": [
+    {
+      "path": "ui/scrollarea.jsx",
+      "content": "\"use client\";\n/* -------------------- Imports -------------------- */\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { BarLoader } from \"react-spinners\";\n/* -------------------- ScrollArea Component -------------------- */\n// Custom scrollable container with synced scrollbar thumb\nfunction ScrollArea({ className, children, ...props }) {\n    const viewportRef = React.useRef(null);\n    const thumbRef = React.useRef(null);\n    // Sync scrollbar thumb size & position\n    React.useEffect(() => {\n        const viewport = viewportRef.current;\n        const thumb = thumbRef.current;\n        if (!viewport || !thumb)\n            return;\n        const updateThumb = () => {\n            const { scrollTop, scrollHeight, clientHeight } = viewport;\n            const thumbHeight = (clientHeight / scrollHeight) * clientHeight;\n            const top = (scrollTop / scrollHeight) * clientHeight;\n            thumb.style.height = `${thumbHeight}px`;\n            thumb.style.transform = `translateY(${top}px)`;\n        };\n        updateThumb();\n        viewport.addEventListener(\"scroll\", updateThumb);\n        window.addEventListener(\"resize\", updateThumb);\n        return () => {\n            viewport.removeEventListener(\"scroll\", updateThumb);\n            window.removeEventListener(\"resize\", updateThumb);\n        };\n    }, []);\n    return (React.createElement(\"div\", { \"data-slot\": \"scroll-area\", className: cn(\"relative overflow-hidden\", className), ...props },\n        React.createElement(\"div\", { \"data-slot\": \"scroll-area-viewport\", ref: viewportRef, className: cn(\"overflow-auto scrollbar-hide size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1 focus-visible:ring-ring/50\") }, children),\n        React.createElement(\"div\", { \"data-slot\": \"scroll-area-scrollbar\", className: \"absolute top-0 right-0 h-full bg-transparent\" },\n            React.createElement(\"div\", { \"data-slot\": \"scroll-area-thumb\", ref: thumbRef, className: \"bg-border relative w-full rounded-full transition-colors\" })),\n        React.createElement(BarLoader, null)));\n}\n/* -------------------- Exports -------------------- */\nexport { ScrollArea };\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

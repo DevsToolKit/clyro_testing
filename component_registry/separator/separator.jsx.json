@@ -1,15 +1,15 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "$schema": "https://clyro.devstoolkit.space/schema/registry-item.json",
   "name": "separator",
   "type": "registry:ui",
-  "author": "shadcn (https://ui.shadcn.com)",
+  "author": "clyro (https://clyro.devstoolkit.space)",
   "dependencies": [
     "@radix-ui/react-slot"
   ],
   "files": [
     {
       "path": "ui/separator.jsx",
-      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nfunction Separator({ className, orientation = \"horizontal\", ...props }) {\n  return (\n    <div\n      role=\"separator\"\n      aria-orientation={orientation}\n      className={cn(\n        \"bg-border shrink-0\",\n        orientation === \"horizontal\" ? \"h-px w-full\" : \"w-px h-full\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Separator };\n",
+      "content": "\"use client\";\n/* -------------------- Imports -------------------- */\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n/* -------------------- Main Component -------------------- */\n// Renders a horizontal or vertical separator line\nfunction Separator({ className, orientation = \"horizontal\", ...props }) {\n    return (React.createElement(\"div\", { role: \"separator\", \"aria-orientation\": orientation, className: cn(\"bg-border shrink-0\", orientation === \"horizontal\" ? \"h-px w-full\" : \"w-px h-full\", className), ...props }));\n}\n/* -------------------- Exports -------------------- */\nexport { Separator };\n",
       "type": "registry:ui",
       "target": ""
     }

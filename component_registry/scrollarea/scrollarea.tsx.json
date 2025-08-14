@@ -1,0 +1,17 @@
+{
+  "$schema": "https://clyro.devstoolkit.space/schema/registry-item.json",
+  "name": "scrollarea",
+  "type": "registry:ui",
+  "author": "clyro (https://clyro.devstoolkit.space)",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "files": [
+    {
+      "path": "ui/scrollarea.tsx",
+      "content": "\"use client\";\n\n/* -------------------- Imports -------------------- */\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\nimport { BarLoader } from \"react-spinners\";\n\n/* -------------------- ScrollArea Component -------------------- */\n// Custom scrollable container with synced scrollbar thumb\nfunction ScrollArea({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  const viewportRef = React.useRef<HTMLDivElement>(null);\n  const thumbRef = React.useRef<HTMLDivElement>(null);\n\n  // Sync scrollbar thumb size & position\n  React.useEffect(() => {\n    const viewport = viewportRef.current;\n    const thumb = thumbRef.current;\n    if (!viewport || !thumb) return;\n\n    const updateThumb = () => {\n      const { scrollTop, scrollHeight, clientHeight } = viewport;\n      const thumbHeight = (clientHeight / scrollHeight) * clientHeight;\n      const top = (scrollTop / scrollHeight) * clientHeight;\n\n      thumb.style.height = `${thumbHeight}px`;\n      thumb.style.transform = `translateY(${top}px)`;\n    };\n\n    updateThumb();\n    viewport.addEventListener(\"scroll\", updateThumb);\n    window.addEventListener(\"resize\", updateThumb);\n\n    return () => {\n      viewport.removeEventListener(\"scroll\", updateThumb);\n      window.removeEventListener(\"resize\", updateThumb);\n    };\n  }, []);\n\n  return (\n    <div\n      data-slot=\"scroll-area\"\n      className={cn(\"relative overflow-hidden\", className)}\n      {...props}\n    >\n      <div\n        data-slot=\"scroll-area-viewport\"\n        ref={viewportRef}\n        className={cn(\n          \"overflow-auto scrollbar-hide size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1 focus-visible:ring-ring/50\"\n        )}\n      >\n        {children}\n      </div>\n\n      <div\n        data-slot=\"scroll-area-scrollbar\"\n        className=\"absolute top-0 right-0 h-full bg-transparent\"\n      >\n        <div\n          data-slot=\"scroll-area-thumb\"\n          ref={thumbRef}\n          className=\"bg-border relative w-full rounded-full transition-colors\"\n        />\n      </div>\n\n      {/* Optional loader at bottom */}\n      <BarLoader />\n    </div>\n  );\n}\n\n/* -------------------- Exports -------------------- */\nexport { ScrollArea };\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

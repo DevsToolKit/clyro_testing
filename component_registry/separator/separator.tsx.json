@@ -1,15 +1,15 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "$schema": "https://clyro.devstoolkit.space/schema/registry-item.json",
   "name": "separator",
   "type": "registry:ui",
-  "author": "shadcn (https://ui.shadcn.com)",
+  "author": "clyro (https://clyro.devstoolkit.space)",
   "dependencies": [
     "@radix-ui/react-slot"
   ],
   "files": [
     {
       "path": "ui/separator.tsx",
-      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface SeparatorProps extends React.HTMLAttributes<HTMLDivElement> {\n  orientation?: \"horizontal\" | \"vertical\";\n}\n\nfunction Separator({\n  className,\n  orientation = \"horizontal\",\n  ...props\n}: SeparatorProps) {\n  return (\n    <div\n      role=\"separator\"\n      aria-orientation={orientation}\n      className={cn(\n        \"bg-border shrink-0\",\n        orientation === \"horizontal\" ? \"h-px w-full\" : \"w-px h-full\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Separator };",
+      "content": "\"use client\";\n\n/* -------------------- Imports -------------------- */\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\n/* -------------------- Types -------------------- */\n// Props for the Separator component\ninterface SeparatorProps extends React.HTMLAttributes<HTMLDivElement> {\n  orientation?: \"horizontal\" | \"vertical\";\n}\n\n/* -------------------- Main Component -------------------- */\n// Renders a horizontal or vertical separator line\nfunction Separator({\n  className,\n  orientation = \"horizontal\",\n  ...props\n}: SeparatorProps) {\n  return (\n    <div\n      role=\"separator\"\n      aria-orientation={orientation}\n      className={cn(\n        \"bg-border shrink-0\",\n        orientation === \"horizontal\" ? \"h-px w-full\" : \"w-px h-full\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\n/* -------------------- Exports -------------------- */\nexport { Separator };\n",
       "type": "registry:ui",
       "target": ""
     }

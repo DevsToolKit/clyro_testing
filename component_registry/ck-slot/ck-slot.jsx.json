@@ -1,15 +1,15 @@
 {
-  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "$schema": "https://clyro.devstoolkit.space/schema/registry-item.json",
   "name": "ck-slot",
   "type": "registry:ui",
-  "author": "shadcn (https://ui.shadcn.com)",
+  "author": "clyro (https://clyro.devstoolkit.space)",
   "dependencies": [
     "@radix-ui/react-slot"
   ],
   "files": [
     {
       "path": "ui/ck-slot.jsx",
-      "content": "import * as React from \"react\";\n\nconst Slot = React.forwardRef(({ children, className, ...props }, ref) => {\n  return React.cloneElement(children, {\n    ...props,\n    ref: (node) => {\n      // Forward ref to parent\n      if (typeof ref === \"function\") {\n        ref(node);\n      } else if (ref) {\n        ref.current = node;\n      }\n\n      // Preserve child's original ref\n      const childRef = children.ref;\n      if (typeof childRef === \"function\") {\n        childRef(node);\n      } else if (childRef && typeof childRef === \"object\") {\n        childRef.current = node;\n      }\n    },\n    className: [children.props.className, className].filter(Boolean).join(\" \"),\n  });\n});\n\nSlot.displayName = \"Slot\";\nexport { Slot };\n",
+      "content": "import * as React from \"react\";\nconst Slot = React.forwardRef(({ children, className, ...props }, ref) => {\n    return React.cloneElement(children, {\n        ...props,\n        ref: (node) => {\n            if (typeof ref === \"function\") {\n                ref(node);\n            }\n            else if (ref) {\n                ref.current = node;\n            }\n            const childRef = children.ref;\n            if (typeof childRef === \"function\") {\n                childRef(node);\n            }\n            else if (childRef && typeof childRef === \"object\" && node) {\n                childRef.current = node;\n            }\n        },\n        className: [children.props.className, className]\n            .filter(Boolean)\n            .join(\" \"),\n    });\n});\nSlot.displayName = \"Slot\";\nexport { Slot };\n",
       "type": "registry:ui",
       "target": ""
     }
